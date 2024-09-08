@@ -1,4 +1,3 @@
-/*parts-project
-project for accounting spare parts in java. 
+/*project for accounting spare parts. 
 
 USED: java, postgresql, css, html, maven.*/
