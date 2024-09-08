@@ -1,0 +1,69 @@
+@startuml
+
+class Main {
+    + main(String[] args)
+}
+
+class StaticFileHandler {
+    - String filePath
+    + StaticFileHandler(String filePath)
+    + handle(HttpExchange t)
+}
+
+class AddPartHandler {
+    + handle(HttpExchange t)
+}
+
+class DeletePartHandler {
+    + handle(HttpExchange t)
+}
+
+class ListPartsHandler {
+    + handle(HttpExchange t)
+}
+
+class AddPartTypeHandler {
+    + handle(HttpExchange t)
+}
+
+class UpdatePartTypeHandler {
+    + handle(HttpExchange t)
+}
+
+class DatabaseConnection {
+    + static Connection getConnection()
+}
+
+interface HttpHandler {
+    + handle(HttpExchange t)
+}
+
+class HttpExchange {
+    + getRequestMethod()
+    + getRequestBody()
+    + getResponseHeaders()
+    + getResponseBody()
+}
+
+class HttpServer {
+    + static HttpServer create(InetSocketAddress addr, int backlog)
+    + createContext(String path, HttpHandler handler)
+    + setExecutor(Executor executor)
+    + start()
+}
+
+Main --> StaticFileHandler : uses
+Main --> AddPartHandler : uses
+Main --> DeletePartHandler : uses
+Main --> ListPartsHandler : uses
+Main --> AddPartTypeHandler : uses
+Main --> UpdatePartTypeHandler : uses
+
+StaticFileHandler ..|> HttpHandler
+AddPartHandler ..|> HttpHandler
+DeletePartHandler ..|> HttpHandler
+ListPartsHandler ..|> HttpHandler
+AddPartTypeHandler ..|> HttpHandler
+UpdatePartTypeHandler ..|> HttpHandler
+
+@enduml

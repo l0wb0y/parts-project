@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управління деталями</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <h1>Управління деталями</h1>
+</header>
+
+<nav>
+    <button onclick="window.location.href='/'">Головна</button>
+    <button onclick="window.location.href='/listParts'">Переглянути всі деталі</button>
+</nav>
+
+<main>
+    <h2>Додавання деталі</h2>
+    <form action="addPart" method="post">
+        <label for="partName">Назва деталі:</label>
+        <input type="text" id="partName" name="partName" required>
+        <label for="partTypeId">Тип деталі (ID):</label>
+        <input type="number" id="partTypeId" name="partTypeId" required>
+        <label for="quantity">Кількість:</label>
+        <input type="number" id="quantity" name="quantity" required>
+        <label for="price">Ціна:</label>
+        <input type="number" step="0.01" id="price" name="price" required>
+        <button type="submit">Додати деталь</button>
+    </form>
+
+    <h2>Видалення деталі</h2>
+    <form action="deletePart" method="post">
+        <label for="partId">ID деталі:</label>
+        <input type="number" id="partId" name="partId" required>
+        <button type="submit">Видалити деталь</button>
+    </form>
+</main>
+
+<footer>
+    <p>© 2024 Управління деталями. Всі права захищені.</p>
+</footer>
+</body>
+</html>
